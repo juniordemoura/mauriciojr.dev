@@ -1,61 +1,201 @@
-* {margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body {background:#0a0f1c;color:#e4e6eb;}
-.container {max-width:1000px;margin:auto;padding:0 20px;}
-header {background:#090d18;padding:20px 0;position:sticky;top:0;}
-header .container {display:flex;justify-content:space-between;align-items:center;}
-header h1 {color:#4da3ff;}
-nav a {margin-left:20px;color:#aaa;text-decoration:none;transition:.3s;}
-nav a:hover {color:#4da3ff;}
-#hero {padding:80px 0;}
-#hero h2 {font-size:36px;color:#4da3ff;}
-#hero p {margin-top:10px;color:#bbb;}
-.btn {display:inline-block;margin-top:20px;padding:10px 20px;background:#4da3ff;color:#fff;border-radius:6px;text-decoration:none;}
-section {padding:60px 0;}
-h3 {margin-bottom:20px;color:#4da3ff;}
-.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;}
-.card {background:#11182d;padding:20px;border-radius:8px;transition:.3s;opacity:.8;}
-.card:hover {transform:translateY(-5px);opacity:1;}
-.card p {color:#bbb;}
-.card a {display:inline-block;margin-top:10px;color:#4da3ff;text-decoration:none;}
-footer {text-align:center;padding:20px;color:#777;}
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+  }
 
-/* animação */
-.reveal {opacity:0;transform:translateY(40px);transition:0.6s;}
-.reveal.active {opacity:1;transform:translateY(0);}
+/* BODY */
+body {
+background:#0a0f1c;
+color:#e4e6eb;
+padding-top:80px; /* espaço pro header fixo */
+}
 
-@media(max-width:768px){header .container{flex-direction:column;}nav{margin-top:10px;}}
+/* CONTAINER */
+.container {
+max-width:1000px;
+margin:auto;
+padding:0 20px;
+}
+
+/* HEADER (FIXO E ACIMA DE TUDO) */
+header {
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:70px;
+
+background:#090d18;
+z-index:999999; /* garante que nada sobrepõe */
+
+display:flex;
+align-items:center;
+}
+
+header .container {
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header h1 {
+color:#4da3ff;
+}
+
+/* NAV */
+nav a {
+margin-left:20px;
+color:#aaa;
+text-decoration:none;
+transition:.3s;
+}
+
+nav a:hover {
+color:#4da3ff;
+}
+
+/* HERO */
+#hero {
+padding:40px 0;
+}
+
+#hero h2 {
+font-size:36px;
+color:#4da3ff;
+}
+
+#hero p {
+margin-top:10px;
+color:#bbb;
+}
+
+/* BOTÃO */
+.btn {
+display:inline-block;
+margin-top:20px;
+padding:10px 20px;
+background:#4da3ff;
+color:#fff;
+border-radius:6px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn:hover {
+background:#1c7ed6;
+}
+
+/* SECTIONS */
+section {
+padding:60px 0;
+position:relative;
+z-index:1; /* impede sobreposição */
+scroll-margin-top:100px;
+}
+
+h3 {
+margin-bottom:20px;
+color:#4da3ff;
+}
+
+/* GRID */
+.grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+}
+
+/* CARDS */
+.card {
+background:#11182d;
+padding:20px;
+border-radius:8px;
+transition:.3s;
+opacity:.9;
+position:relative;
+z-index:1;
+}
+
+.card:hover {
+transform:translateY(-5px);
+opacity:1;
+}
+
+.card p {
+color:#bbb;
+}
+
+.card a {
+display:inline-block;
+margin-top:10px;
+color:#4da3ff;
+text-decoration:none;
+}
 
 /* SKILLS */
 .skill {
-  margin-bottom: 15px;
+margin-bottom:15px;
+position:relative;
+z-index:1;
 }
 
-.skill p {
-  margin-bottom: 5px;
+.skill-top {
+display:flex;
+justify-content:space-between;
+margin-bottom:5px;
 }
 
 .bar {
-  width: 100%;
-  height: 8px;
-  background: #1c233a;
-  border-radius: 10px;
-  overflow: hidden;
+width:100%;
+height:8px;
+background:#1c233a;
+border-radius:10px;
+overflow:hidden;
 }
 
 .progress {
-  height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, #4da3ff, #1c7ed6);
-  border-radius: 10px;
-  transition: width 1.5s ease;
-}
-.skill-top {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
+height:100%;
+width:0;
+background:linear-gradient(90deg,#4da3ff,#1c7ed6);
+border-radius:10px;
+transition:width 1.5s ease;
 }
 
 .percent {
-  color: #4da3ff;
-  font-weight: bold;
+color:#4da3ff;
+font-weight:bold;
+}
+
+/* ANIMAÇÃO */
+.reveal {
+opacity:0;
+transform:translateY(40px);
+transition:0.6s;
+position:relative;
+z-index:1;
+}
+
+.reveal.active {
+opacity:1;
+transform:translateY(0);
+}
+
+/* FOOTER */
+footer {
+text-align:center;
+padding:20px;
+color:#777;
+}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+header .container{
+flex-direction:column;
+}
+
+nav{
+margin-top:10px;
+}
 }
